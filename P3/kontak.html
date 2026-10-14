@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Saya | Khansa Syafiqa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="brand">Khansa Syafiqa<span class="blue">.</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a class="active" href="kontak.html">Hubungi Saya</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-wrap">
+            <section class="contact-heading">
+                <p class="eyebrow">Kontak</p>
+                <h2>Ada ide atau ingin berdiskusi?</h2>
+                <p>
+                    Isi formulir berikut untuk menyampaikan pesan
+                    atau kebutuhan proyek.
+                </p>
+            </section>
+
+            <section class="contact-card">
+                <form action="#" method="get">
+                    <div class="form-field">
+                        <label for="nama_pengirim">Nama lengkap</label>
+                        <input
+                            type="text"
+                            id="nama_pengirim"
+                            name="nama_pengirim"
+                            placeholder="Masukkan nama lengkap"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email_pengirim">Alamat email</label>
+                        <input
+                            type="email"
+                            id="email_pengirim"
+                            name="email_pengirim"
+                            placeholder="nama@email.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="jenis_layanan">
+                            Layanan yang dibutuhkan
+                        </label>
+                        <select
+                            id="jenis_layanan"
+                            name="jenis_layanan"
+                            required
+                        >
+                            <option value="">Pilih layanan</option>
+                            <option value="web">Pembuatan web</option>
+                            <option value="app">Pengembangan aplikasi</option>
+                            <option value="other">Lain-lain / diskusi</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="pesan">Lainnya</label>
+                        <textarea
+                            id="pesan"
+                            name="pesan"
+                            placeholder="Ceritakan kebutuhan atau ide Anda..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit">Kirim pesan →</button>
+                        <button class="secondary" type="reset">
+                            Kosongkan formulir
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Kisee Laurent · Portofolio Mahasiswa Teknik Informatika</p>
+    </footer>
+</body>
+</html>
