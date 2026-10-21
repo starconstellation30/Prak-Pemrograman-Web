@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -21,6 +20,45 @@
     </header>
 
     <main>
+        <!-- FITUR 1: FORM INPUT PROYEK -->
+        <section class="add-project" id="tambah-proyek">
+            <h2 class="section-heading">Tambah Proyek Baru</h2>
+            <form id="project-form" novalidate>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="judul">Judul Proyek</label>
+                        <input type="text" id="judul" name="judul" placeholder="Contoh: Aplikasi Kasir">
+                        <small class="field-error" id="judul-error" role="alert"></small>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="kategori">Kategori</label>
+                        <select id="kategori" name="kategori">
+                            <option value="Web App">Web App</option>
+                            <option value="Mobile App">Mobile App</option>
+                            <option value="Desktop App">Desktop App</option>
+                            <option value="UI/UX Design">UI/UX Design</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="anggaran">Estimasi Anggaran (Rp)</label>
+                        <input type="number" id="anggaran" name="anggaran" placeholder="Contoh: 1500000" min="0" step="any">
+                        <small class="field-error" id="anggaran-error" role="alert"></small>
+                    </div>
+                </div>
+
+                <label class="check-field" for="selesai">
+                    <input type="checkbox" id="selesai" name="selesai">
+                    <span>Sudah Selesai</span>
+                </label>
+
+                <div class="form-actions">
+                    <button type="submit">Tambah proyek +</button>
+                </div>
+            </form>
+        </section>
+
         <section class="hero" id="tentang">
             <p class="eyebrow">Portofolio Mahasiswa</p>
             <h2>Halo, saya Khans. Saya sedang membangun dunia saya di dunia web.</h2>
@@ -48,38 +86,35 @@
         <section id="proyek">
             <h2 class="section-heading">Proyek Pilihan</h2>
 
-            <div class="project-grid">
-                <article class="project-card">
-                    <span class="project-number">01</span>
-                    <h3>Sistem Manajemen Inventori</h3>
-                    <p class="project-meta">Proyek pembelajaran · 2026</p>
-                    <p>
-                        Aplikasi berbasis lokal pencatatan dan pengelolaan sirkulasi barang dengan dukungan
-                        database MySQL.
-                    </p>
-                    <div class="tag-list">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">MySQL</span>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <span class="project-number">02</span>
-                    <h3>Perhitungan Transaksi Belanja</h3>
-                    <p class="project-meta">Latihan JavaScript · 2026</p>
-                    <p>
-                        Program perhitungan total belanja dan
-                        diskon menggunakan logika JavaScript serta
-                        struktur data Array of Objects.
-                    </p>
-                    <div class="tag-list">
-                        <span class="tag">JavaScript ES6+</span>
-                        <span class="tag">Array of Objects</span>
-                    </div>
-                </article>
+            <!-- Kartu statistik -->
+            <div class="stats-grid" id="stats">
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-total">0</span>
+                    <span class="stat-label">Total Proyek</span>
+                </div>
+                <div class="stat-card stat-done">
+                    <span class="stat-value" id="stat-selesai">0</span>
+                    <span class="stat-label">Selesai</span>
+                </div>
+                <div class="stat-card stat-progress">
+                    <span class="stat-value" id="stat-proses">0</span>
+                    <span class="stat-label">Dalam Pengerjaan</span>
+                </div>
+                <div class="stat-card stat-budget">
+                    <span class="stat-value" id="stat-anggaran">Rp 0</span>
+                    <span class="stat-label">Total Anggaran</span>
+                </div>
             </div>
+
+            <!-- FITUR 2: PENCARIAN REAL-TIME -->
+            <div class="search-box">
+                <label for="cari" class="visually-hidden">Cari proyek</label>
+                <input type="search" id="cari" placeholder="Cari proyek berdasarkan nama..." autocomplete="off">
+            </div>
+
+            <!-- Daftar proyek dirender oleh script.js -->
+            <div class="project-grid" id="project-list"></div>
+            <p class="empty-state" id="empty-state" hidden></p>
         </section>
 
         <aside class="status-card">
@@ -97,5 +132,7 @@
     <footer class="site-footer">
         <p>© 2026 Kisee Laurent · Portofolio Mahasiswa Teknik Informatika</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

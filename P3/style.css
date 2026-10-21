@@ -189,6 +189,7 @@ nav a.active {
 /* SECTION TENTANG */
 
 main > .about-card,
+main > .add-project,
 main > #proyek,
 .status-card {
     width: min(100% - 56px, 1000px);
@@ -267,12 +268,12 @@ main > #proyek,
     transition: transform 0.25s, box-shadow 0.25s;
 }
 
-.project-card:first-child {
+.project-card {
     border-top: 6px solid var(--coral);
 }
 
-.project-card:last-child {
-    border-top: 6px solid var(--blue);
+.project-card:nth-child(even) {
+    border-top-color: var(--blue);
 }
 
 .project-card:hover {
@@ -295,7 +296,7 @@ main > #proyek,
     font-weight: 700;
 }
 
-.project-card:last-child .project-number {
+.project-card:nth-child(even) .project-number {
     background: #e0f5ff;
     color: #1977a6;
 }
@@ -315,7 +316,7 @@ main > #proyek,
 }
 
 .project-card > p:not(.project-meta) {
-    margin-bottom: 23px;
+    margin-bottom: 18px;
     color: var(--muted);
     font-size: 0.94rem;
     line-height: 1.8;
@@ -337,7 +338,7 @@ main > #proyek,
     font-weight: 600;
 }
 
-.project-card:last-child .tag {
+.project-card:nth-child(even) .tag {
     border-color: #d4edf8;
     background: #eaf8ff;
     color: #216d8e;
@@ -392,7 +393,7 @@ main > #proyek,
 
 /* HALAMAN KONTAK */
 
-body:has(form) main {
+body:has(.contact-wrap) main {
     width: min(100% - 40px, 760px);
     margin: 48px auto 75px;
     padding: 42px;
@@ -402,14 +403,14 @@ body:has(form) main {
     box-shadow: 0 15px 40px rgba(64, 37, 111, 0.07);
 }
 
-body:has(form) header:not(.site-header) {
+body:has(.contact-wrap) header:not(.site-header) {
     padding: 35px 20px;
     background: var(--purple);
     color: var(--white);
     text-align: center;
 }
 
-body:has(form) main h2 {
+body:has(.contact-wrap) main h2 {
     margin-bottom: 28px;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.8rem;
@@ -476,16 +477,252 @@ form button[type="reset"] {
     color: #b53e31;
 }
 
-body:has(form) footer {
+body:has(.contact-wrap) footer {
     padding: 25px;
     color: var(--muted);
     text-align: center;
     font-size: 0.85rem;
 }
 
+/* FORM TAMBAH PROYEK */
+
+.add-project {
+    margin-top: 34px;
+    margin-bottom: 40px !important;
+    padding: 34px 40px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: var(--white);
+    box-shadow: 0 12px 35px rgba(64, 37, 111, 0.05);
+}
+
+.add-project .section-heading {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 16px;
+}
+
+.add-project .form-field label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.add-project input[type="text"],
+.add-project input[type="number"],
+.add-project select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1.5px solid #e3dcef;
+    border-radius: 12px;
+    outline: none;
+    background: #fdfbff;
+    color: var(--ink);
+    font: inherit;
+}
+
+.add-project input.invalid {
+    border-color: #d64545;
+    background: #fff5f5;
+}
+
+.field-error {
+    display: block;
+    min-height: 1.2em;
+    margin-top: 6px;
+    color: #c0392b;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.check-field {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.check-field input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--purple);
+}
+
+/* STATISTIK */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 26px;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--white);
+}
+
+.stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.stat-budget .stat-value {
+    font-size: 1.3rem;
+    padding-top: 0.35rem;
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.stat-done { background: #ecf8f0; border-color: #d8ebdc; }
+.stat-progress { background: #fff6dc; border-color: #f6e6b0; }
+.stat-budget { background: #f5f0ff; border-color: #e7defb; }
+
+/* PENCARIAN */
+
+.search-box {
+    margin-bottom: 24px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1.5px solid #e3dcef;
+    border-radius: 50px;
+    outline: none;
+    background: var(--white);
+    color: var(--ink);
+    font: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box input:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 4px rgba(108, 60, 233, 0.1);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.empty-state {
+    padding: 32px;
+    border: 2px dashed var(--line);
+    border-radius: 20px;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* KARTU PROYEK DINAMIS */
+
+.card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.card-top .project-number {
+    margin-bottom: 18px;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.status-badge.is-done {
+    background: #d9f2e2;
+    color: #1d6b40;
+}
+
+.status-badge.is-progress {
+    background: #fff0c2;
+    color: #8a6200;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card .tag-list {
+    margin-bottom: 20px;
+}
+
+.card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+}
+
+.card-actions button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.card-actions button:hover {
+    transform: translateY(-2px);
+}
+
+.btn-toggle {
+    background: #eee5ff;
+    color: var(--purple-dark);
+}
+
+.btn-delete {
+    background: #ffebe5;
+    color: #b53e31;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .hero {
         margin: 24px;
         padding: 65px 42px;
@@ -549,7 +786,8 @@ body:has(form) footer {
     }
 
     main > .about-card,
-    main > #proyek,
+    main > .add-project,
+main > #proyek,
     .status-card {
         width: calc(100% - 28px);
     }
@@ -582,13 +820,13 @@ body:has(form) footer {
         margin-bottom: 50px;
     }
 
-    body:has(form) main {
+    body:has(.contact-wrap) main {
         width: calc(100% - 28px);
         margin: 25px auto 45px;
         padding: 26px 20px;
     }
 
-    body:has(form) main h2 {
+    body:has(.contact-wrap) main h2 {
         font-size: 1.55rem;
     }
 
